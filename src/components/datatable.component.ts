@@ -954,7 +954,10 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
    */
   onFooterPage(event: any) {
     this.offset = event.page - 1;
-    this.bodyComponent.updateOffsetY(this.offset);
+    if (this.scrollbarV) {
+      this.bodyComponent.updateOffsetY(this.offset);
+    }
+    
 
     this.page.emit({
       count: this.count,
